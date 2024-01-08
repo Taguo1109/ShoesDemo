@@ -1,0 +1,26 @@
+package tw.taguo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import tw.taguo.model.Shoe;
+import tw.taguo.service.ShoeService;
+
+@Controller
+@RequestMapping("/shoes")
+public class ShoeController {
+
+	@Autowired
+	private ShoeService shoeService;
+	
+	
+	@GetMapping("{id}")
+	public String getShoeById(@PathVariable Long id, Model model) {
+		Shoe shoe = shoeService.getShoeById(id);
+		model.addAttribute("shoe",shoe);
+		return "shoeDetails";
+	}
+}

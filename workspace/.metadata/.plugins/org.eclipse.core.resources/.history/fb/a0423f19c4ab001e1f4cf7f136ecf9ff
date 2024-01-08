@@ -1,0 +1,24 @@
+package tw.taguo.dao;
+
+import java.util.List;
+
+import tw.taguo.model.Shoe;
+
+public interface ShoeDao {
+	
+	Shoe getById(Long id);
+	
+	List<Shoe> getAllShoes();
+	
+	void save (Shoe shoe);
+	
+	void update (Shoe shoe);
+	
+	void delete (Shoe shoe);
+	
+	//名稱搜尋
+	List<Shoe>SearchByName(String name);
+	
+	
+
+}
